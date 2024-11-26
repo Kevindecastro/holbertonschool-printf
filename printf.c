@@ -1,61 +1,61 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include "main.h"
-#include <stdint.h> 
+#include <stdint.h>
 
 /**
-* _printf: Function printf
+* _printf: - Function printf for print
 * @format: Chaine de caractere
 * Return: Always
 */
 
 
-int _printf(const char *format, ...) 
+int _printf(const char *format, ...)
 {
 va_list args;
 int count = 0;
 int i;
-    
 va_start(args, format);
     
-for (i = 0; format[i] != '\0'; i++) {
-if (format[i] == '%' && format[i + 1] != '\0') 
+for (i = 0; format[i] != '\0'; i++)
+{
+if (format[i] == '%' && format[i + 1] != '\0')
 {
 i++;
-switch (format[i]) 
+switch (format[i])
 {
 case 'd':
-case 'i': 
+case 'i':
 {
 int num = va_arg(args, int);
 count += printf("%d", num);
 break;
 }
-case 'u': 
+case 'u':
 {
 unsigned int num = va_arg(args, unsigned int);
 count += printf("%u", num);
 break;
 }
-case 'o': 
+case 'o':
 {
 unsigned int num = va_arg(args, unsigned int);
 count += printf("%o", num);
 break;
 }
-case 'x': 
+case 'x':
 {
 unsigned int num = va_arg(args, unsigned int);
 count += printf("%x", num);
 break;
 }
-case 'X': 
+case 'X':
 {
 unsigned int num = va_arg(args, unsigned int);
 count += printf("%X", num);
 break;
 }
-case 'p': 
+case 'p':
 {
 uintptr_t addr = va_arg(args, uintptr_t);  
 count += printf("0x%lx", addr);  
@@ -67,13 +67,13 @@ int ch = va_arg(args, int);
 count += printf("%c", ch);
 break;
 }
-case 's': 
+case 's':
 {
 char *str = va_arg(args, char *);
 count += printf("%s", str);
 break;
 }
-case '%': 
+case '%':
 {
 count += printf("%%");
 break;
@@ -81,13 +81,13 @@ break;
 default:
 count += printf("Unknown format specifier");
 }
-} 
-else 
+}
+else
 {
 putchar(format[i]);
 count++;
 }
 }
 va_end(args);
-return count;
+return (count);
 }
