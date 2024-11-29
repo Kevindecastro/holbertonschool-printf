@@ -1,0 +1,40 @@
+.TH PRINTF
+
+NAME
+       _printf - Imprime des données formatées vers la sortie standard.
+
+SYNOPSIS
+       #include "main.h"
+
+       int _printf(const char *format, ...);
+
+DESCRIPTION
+       La fonction `_printf` afficher une sortie.
+       Elle fonctionne comme `printf` mais avec un ensemble limité de spécificateurs.
+
+PARAMETERS
+       - `format` : Chaîne contenant les spécificateurs de format.
+       - `...` : Arguments associés aux spécificateurs.
+
+    Les spécificateurs valides sont les suivants :
+       - `%c` : Affiche un caractère.
+       - `%s` : Affiche une chaîne de caractères.
+       - `%d` ou `%i` : Affiche un entier signé.
+       - `%%` : Affiche un caractère pourcentage (`%`).
+
+RETURN VALUE
+       Retourne le nombre de caractères affiché ou `-1` en cas d'erreur.
+
+EXAMPLES
+       _printf("Hello, %s!\n", "world");
+       _printf("Character: [%c]\n", 'A');
+
+ERRORS
+       Retourne `-1` si `format` est `NULL` ou si un spécificateur non pris en charge
+       est trouvé.
+
+SEE ALSO
+       printf(3)
+
+AUTHOR
+       Créé par Noam & Kevin.
