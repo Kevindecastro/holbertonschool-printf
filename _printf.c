@@ -16,30 +16,30 @@ int hand_spec(char specifier, va_list args);
 */
 int _printf(const char *format, ...)
 {
-	va_list args;
-	int i = 0, count = 0;
+    va_list args;
+    int i = 0, count = 0;
 
-	if (!format)
-		return (-1);
+    if (!format)
+        return (-1);
 
-	va_start(args, format);
+    va_start(args, format);
 
-	while (format[i])
-	{
-		if (format[i] == '%' && format[i + 1])
-		{
-			i++;
-			count += hand_spec(format[i], args);
-		}
-		else
-		{
-			count += write(1, &format[i], 1);
-		}
-		i++;
-	}
+    while (format[i])
+    {
+        if (format[i] == '%' && format[i + 1] != '\0') 
+        {
+            i++;
+            count += hand_spec(format[i], args);
+        }
+        else
+        {
+            count += write(1, &format[i], 1);
+        }
+        i++;
+    }
 
-	va_end(args);
-	return (count);
+    va_end(args);
+    return (count);
 }
 
 /**
@@ -50,28 +50,28 @@ int _printf(const char *format, ...)
 */
 int hand_spec(char specifier, va_list args)
 {
-	int count = 0;
+    int count = 0;
 
-	switch (specifier)
-	{
-	case 'c':
-		count += print_char(va_arg(args, int));
-		break;
-	case 's':
-		count += print_string(va_arg(args, char *));
-		break;
-	case '%':
-		count += print_char('%');
-		break;
-	case 'd':
-	case 'i':
-		count += print_number(va_arg(args, int));
-		break;
-	default:
-		count += write(1, "%", 1);
-		count += write(1, &specifier, 1);
-		break;
-	}
+    switch (specifier)
+    {
+    case 'c':
+        count += print_char(va_arg(args, int));
+        break;
+    case 's':
+        count += print_string(va_arg(args, char *));
+        break;
+    case '%':
+        count += print_char('%');
+        break;
+    case 'd':
+    case 'i':
+        count += print_number(va_arg(args, int));
+        break;
+    default:
+        
+        write(1, "[ERROR: Unsupported specifier]", 28);
+        break;
+    }
 
-	return (count);
+    return (count);
 }
