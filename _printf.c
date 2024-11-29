@@ -22,7 +22,7 @@ if (format[i] == '%')
 i++;
 int found = 0;
 int j;
-for (j = 0; spec[j].type; j++) 
+for (j = 0; spec[j].type; j++)
 {
 if (format[i] == *spec[j].type)
 {
