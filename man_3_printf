@@ -26,8 +26,13 @@ RETURN VALUE
        Retourne le nombre de caractères affiché ou `-1` en cas d'erreur.
 
 EXAMPLES
-       _printf("Hello, %s!\n", "world");
-       _printf("Character: [%c]\n", 'A');
+       _printf("String:[%s]\n", "I am a string !");
+       _printf("Character: [%c]\n", 'H');
+       _printf("Let's try to printf a simple sentence.\n");
+       _printf("Length:[%d, %i]\n", len1, len1);
+       _printf("Negative:[%d]\n", -762534);
+       _printf("Percent test: [%%]\n");
+       _printf("Unsupported specifier: [%r]\n");
 
 ERRORS
        Retourne `-1` si `format` est `NULL` ou si un spécificateur non pris en charge
