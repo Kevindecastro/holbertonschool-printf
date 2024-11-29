@@ -1,16 +1,19 @@
 #include "main.h"
-/**
- * _printf - Fonction principal de l'execution de printf
- * @format: Chaine contenant le format a afficher.
- * Return: Nombre total à afficher
- */
+
 int _printf(const char *format, ...)
 {
-int i = 0, count = 0;
+int i = 0;
+int j = 0;    
+int count = 0;
+int found = 0;   
 va_list list;
 check_h spec[] = {
-{"c", print_char}, {"s", print_string}, {"%", print_perc},
-{"d", print_deci}, {"i", print_deci}, {NULL, NULL},
+{"c", print_char}, 
+{"s", print_string},
+{"%", print_perc}, 
+{"d", print_deci}, 
+{"i", print_deci}, 
+{NULL, NULL}
 };
 va_start(list, format);
 if (format == NULL)
@@ -20,20 +23,19 @@ while (format[i] != '\0')
 if (format[i] == '%')
 {
 i++;
-int found = 0;
-int j;
-for (j = 0; spec[j].type; j++)
+found = 1;
+while (spec[j].type)
 {
-if (format[i] == *spec[j].type)
+if (*spec[j].type == format[i])
 {
 count += spec[j].func_print(list);
-found = 1;
-break;
+found = 0;
 }
+j++;
 }
-if (!found)
+if (found == 1)
 {
-_putchar('%');
+_putchar(format[i - 1]);
 _putchar(format[i]);
 count += 2;
 }
@@ -43,6 +45,7 @@ else
 _putchar(format[i]);
 count++;
 }
+j = 0;
 i++;
 }
 va_end(list);
