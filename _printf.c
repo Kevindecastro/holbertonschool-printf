@@ -4,39 +4,42 @@
  * @format: Chaine contenant le format a afficher.
  * Return: Nombre total à afficher
  */
-int _printf(const char *format, ...) 
+int _printf(const char *format, ...)
 {
-int i = 0, count = 0; 
+int i = 0, count = 0;
 va_list list;
 check_h spec[] = {
 {"c", print_char}, {"s", print_string}, {"%", print_perc},
 {"d", print_deci}, {"i", print_deci}, {NULL, NULL},
 };
 va_start(list, format);
-if (format == NULL) 
+if (format == NULL)
 return (-1);
-while (format[i] != '\0') 
-{ 
-if (format[i] == '%') {
+while (format[i] != '\0')
+{
+if (format[i] == '%')
+{
 i++;
 int found = 0;
 int j;
 for (j = 0; spec[j].type; j++) 
 {
-if (format[i] == *spec[j].type) 
+if (format[i] == *spec[j].type)
 {
 count += spec[j].func_print(list);
 found = 1;
 break;
 }
 }
-if (!found) 
+if (!found)
 {
 _putchar('%');
 _putchar(format[i]);
 count += 2;
 }
-} else {
+}
+else
+{
 _putchar(format[i]);
 count++;
 }
