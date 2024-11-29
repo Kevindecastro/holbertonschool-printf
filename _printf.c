@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%' && format[i + 1])
 		{
 			i++;
-			count += handle_specifiers(format[i], args);
+			count += hand_spec(format[i], args);
 		}
 		else
 		{
