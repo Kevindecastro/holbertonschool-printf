@@ -7,7 +7,7 @@
 * @args: Arguments
 * Return: Nombre de caractères imprimés
 */
-int handle_specifiers(char specifier, va_list args);
+int hand_spec(char specifier, va_list args);
 
 /**
 * _printf - Fonction principale printf
