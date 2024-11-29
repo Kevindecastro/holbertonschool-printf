@@ -2,7 +2,7 @@
 #include <unistd.h>
 
 /**
-* hand_spec - Spécificateur a gerer
+* hand_spec - Specificateur a gerer
 * @specifier: Spec a utiliser
 * @args: Arguments
 * Return: Nombre de caractères imprimés
