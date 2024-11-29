@@ -2,19 +2,18 @@
 #include <unistd.h>
 
 /**
-* hand_spec - Specificateur a gerer
+* hand_spec - Spécificateur a gerer
 * @specifier: Spec a utiliser
 * @args: Arguments
 * Return: Nombre de caractères imprimés
 */
-int hand_spec char specifier, va_list args);
+int hand_spec(char specifier, va_list args);
 
 /**
 * _printf - Fonction principale printf
 * @format: Chaine de caractères contenant un format specifier
 * Return: Nombre de caractères.
 */
-
 int _printf(const char *format, ...)
 {
 	va_list args;
@@ -49,7 +48,6 @@ int _printf(const char *format, ...)
 * @args: Arguments
 * Return: Nombre de caractères imprimés
 */
-
 int hand_spec(char specifier, va_list args)
 {
 	int count = 0;
