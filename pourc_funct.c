@@ -7,7 +7,7 @@
  */
 int print_perc(va_list list)
 {
-    (void)list;  
-    _putchar('%');  
-    return (1);  
+(void)list;  
+_putchar('%');  
+return (1);  
 }
