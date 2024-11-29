@@ -7,19 +7,19 @@
  */
 int print_string(va_list list)
 {
-    char *str = va_arg(list, char *);
-    int count = 0;
+char *str = va_arg(list, char *);
+int count = 0;
 
-    if (str == NULL)  
-        str = "(null)";
+if (str == NULL)  
+str = "(null)";
 
    
-    while (*str)
-    {
-        _putchar(*str);
-        str++;
-        count++;
-    }
+while (*str)
+{
+_putchar(*str);
+str++;
+count++;
+}
 
-    return (count);
+return (count);
 }
